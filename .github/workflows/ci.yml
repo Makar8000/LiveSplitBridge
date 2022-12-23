@@ -1,0 +1,28 @@
+name: Build Plugin
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1
+    - name: Setup Nuget
+      uses: nuget/setup-nuget@v1
+      with:
+        nuget-version: 'latest'
+    - name: Restore Nuget Packagess
+      run: nuget restore LiveSplitBridge.sln
+    - name: Download ACT Binaries
+      shell: powershell
+      run: |
+        Invoke-WebRequest https://advancedcombattracker.com/includes/page-download.php?id=57 -OutFile packages/act.zip
+        Expand-Archive -Path packages/act.zip -DestinationPath packages
+    - name: Build
+      run: msbuild LiveSplitBridge.sln -p:Configuration=Release
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: LiveSplitBridge-Prerelease
+        path: 'bin/Release/LiveSplitBridge.dll'
