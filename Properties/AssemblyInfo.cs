@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("LiveSplitBridge")]
-[assembly: AssemblyDescription("An ACT Plugin for patching Opcodes used by the FFXIV parser plugin")]
+[assembly: AssemblyDescription("An ACT Plugin for helping other plugins interact with LiveSplit")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("LiveSplitBridge")]
