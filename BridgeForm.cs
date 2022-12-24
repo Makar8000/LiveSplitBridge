@@ -154,20 +154,29 @@ namespace LiveSplitBridge {
       if (e.Control && e.KeyCode == Keys.C && logList.SelectedItems.Count > 0) {
         var builder = new StringBuilder();
         foreach (ListViewItem item in logList.SelectedItems)
-          builder.AppendLine(item.SubItems[1].Text);
+          builder.AppendLine($"[{item.SubItems[0].Text}] {item.SubItems[1].Text}");
 
-        string clipboard = builder.ToString();
-        if (clipboard.Length > 0)
-          Clipboard.SetText(builder.ToString());
+        string clipboard = builder.ToString().Trim();
+        if (clipboard.Length > 0) {
+          Clipboard.SetText(clipboard);
+          System.Media.SystemSounds.Asterisk.Play();
+        }
+      }
+    }
+    private void copyLogBtn_Click(object sender, EventArgs e) {
+      var builder = new StringBuilder();
+      foreach (ListViewItem item in logList.Items)
+        builder.AppendLine($"[{item.SubItems[0].Text}] {item.SubItems[1].Text}");
+
+      string clipboard = builder.ToString().Trim();
+      if (clipboard.Length > 0) {
+        Clipboard.SetText(clipboard);
+        System.Media.SystemSounds.Asterisk.Play();
       }
     }
 
-    private async void connectBtn_Click(object sender, EventArgs e) {
-      await Task.Run(Connect);
-    }
-
-    private async void disconnectBtn_Click(object sender, EventArgs e) {
-      await Task.Run(Disconnect);
+    private void clearLogBtn_Click(object sender, EventArgs e) {
+      logList.Items.Clear();
     }
 
     private void testSplitBtn_Click(object sender, EventArgs e) {
@@ -181,6 +190,14 @@ namespace LiveSplitBridge {
     private void resetHotkeyLbl_Click(object sender, EventArgs e) {
       System.Diagnostics.Process.Start(SENDKEYS_HELP_LINK);
     }
+
+    private async void connectBtn_Click(object sender, EventArgs e) {
+      await Task.Run(Connect);
+    }
+
+    private async void disconnectBtn_Click(object sender, EventArgs e) {
+      await Task.Run(Disconnect);
+    }
     #endregion
 
     #region Settings
@@ -189,6 +206,7 @@ namespace LiveSplitBridge {
       row[0] = DateTime.Now.ToShortDateString() + " " + DateTime.Now.ToLongTimeString();
       row[1] = text;
       logList.Items.Add(new ListViewItem(row));
+      logList.Items[logList.Items.Count - 1].EnsureVisible();
       logList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
     }
 
