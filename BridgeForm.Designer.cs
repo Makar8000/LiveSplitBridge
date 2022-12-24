@@ -1,33 +1,28 @@
-﻿namespace LiveSplitBridge
-{
-    partial class BridgeForm
-    {
-        /// <summary> 
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+﻿namespace LiveSplitBridge {
+  partial class BridgeForm {
+    /// <summary> 
+    /// Required designer variable.
+    /// </summary>
+    private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+    /// <summary> 
+    /// Clean up any resources being used.
+    /// </summary>
+    /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+    protected override void Dispose(bool disposing) {
+      if (disposing && (components != null)) {
+        components.Dispose();
+      }
+      base.Dispose(disposing);
+    }
 
-        #region Component Designer generated code
+    #region Component Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
+    /// <summary> 
+    /// Required method for Designer support - do not modify 
+    /// the contents of this method with the code editor.
+    /// </summary>
+    private void InitializeComponent() {
       this.connectBtn = new System.Windows.Forms.Button();
       this.disconnectBtn = new System.Windows.Forms.Button();
       this.logList = new System.Windows.Forms.ListView();
@@ -69,8 +64,8 @@
       // 
       // logList
       // 
-      this.logList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+      this.logList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
       this.logList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.listColTim,
@@ -229,23 +224,23 @@
       this.ResumeLayout(false);
       this.PerformLayout();
 
-        }
+    }
 
-        #endregion
+    #endregion
 
-        private System.Windows.Forms.Button connectBtn;
-        private System.Windows.Forms.Button disconnectBtn;
-        private System.Windows.Forms.ListView logList;
-        private System.Windows.Forms.ColumnHeader listColTim;
-        private System.Windows.Forms.ColumnHeader listColMsg;
-        private System.Windows.Forms.Label logLabel;
-        private System.Windows.Forms.Label resetModeLbl;
-        private System.Windows.Forms.ComboBox resetModeCmb;
-        private System.Windows.Forms.Label resetHotkeyLbl;
-        private System.Windows.Forms.TextBox resetHotkeyTxt;
-        private System.Windows.Forms.Button resetDefaultBtn;
-        private System.Windows.Forms.Button testSplitBtn;
-        private System.Windows.Forms.Button testResetBtn;
+    private System.Windows.Forms.Button connectBtn;
+    private System.Windows.Forms.Button disconnectBtn;
+    private System.Windows.Forms.ListView logList;
+    private System.Windows.Forms.ColumnHeader listColTim;
+    private System.Windows.Forms.ColumnHeader listColMsg;
+    private System.Windows.Forms.Label logLabel;
+    private System.Windows.Forms.Label resetModeLbl;
+    private System.Windows.Forms.ComboBox resetModeCmb;
+    private System.Windows.Forms.Label resetHotkeyLbl;
+    private System.Windows.Forms.TextBox resetHotkeyTxt;
+    private System.Windows.Forms.Button resetDefaultBtn;
+    private System.Windows.Forms.Button testSplitBtn;
+    private System.Windows.Forms.Button testResetBtn;
     private System.Windows.Forms.Button clearLogBtn;
     private System.Windows.Forms.Button copyLogBtn;
   }
